@@ -22,8 +22,8 @@ import static org.junit.Assert.assertNotNull;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class EmployeeServiceImplTest {
 
-    private String employeeUrl;
-    private String employeeIdUrl;
+    private String employeeUrl; // create url
+    private String employeeIdUrl; // read url
 
     @Autowired
     private EmployeeService employeeService;
@@ -49,7 +49,7 @@ public class EmployeeServiceImplTest {
         testEmployee.setPosition("Developer");
 
         // Create checks
-        Employee createdEmployee = restTemplate.postForEntity(employeeUrl, testEmployee, Employee.class).getBody();
+        Employee createdEmployee = restTemplate.postForEntity(employeeUrl, testEmployee, Employee.class).getBody(); // post query- get response body
 
         assertNotNull(createdEmployee.getEmployeeId());
         assertEmployeeEquivalence(testEmployee, createdEmployee);
